@@ -25,7 +25,7 @@ jobs:
     - name: Archive assets
       uses: thedoctor0/zip-release@master
       with:
-        filename: 'humanmade-s3-uploads.zip'
+        filename: 's3-uploads.zip'
         exclusions: '*.git* *tests/ *tests/data/ *tests/* *tests/**/*'
         path: '.'
         directory: '.'
@@ -33,5 +33,5 @@ jobs:
     - name: Upload zip to release
       uses: AButler/upload-release-assets@v2.0
       with:
-        files: 'humanmade-s3-uploads.zip'
+        files: 's3-uploads.zip'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
