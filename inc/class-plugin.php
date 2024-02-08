@@ -604,7 +604,9 @@ class Plugin {
 
 		$presigned_url_expires = apply_filters( 's3_uploads_private_attachment_url_expiry', '+6 hours', $post_id );
 		$query = $this->s3()->createPresignedRequest( $cmd, $presigned_url_expires )->getUri()->getQuery();
-        $ed_uri = $this->s3()->createPresignedRequest( $cmd, $presigned_url_expires )->getUri()        //error_log($query);
+        $ed_uri = $this->s3()->createPresignedRequest( $cmd, $presigned_url_expires )->getUri();
+        //error_log($query);
+
         error_log("raw url: ".$ed_uri);
 
 		// The URL could have query params on it already (such as being an already signed URL),
