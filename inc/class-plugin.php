@@ -609,6 +609,7 @@ class Plugin {
 		// The URL could have query params on it already (such as being an already signed URL),
 		// but query params will mean the S3 signed URL will become corrupt. So, we have to
 		// remove all query params.
+        error_log("raw url: ".$url);
 		$url = strtok( $url, '?' ) . '?' . $query;
 		$url = apply_filters( 's3_uploads_presigned_url', $url, $post_id );
         error_log($url);
